@@ -59,47 +59,16 @@ We have built and evaluated several machine learning models to classify species 
 
 -Esamble (XGBoost, Logistic Regression and SVC): Ensemble learning combines predictions from multiple machine learning models to produce better results than any single model. In this case, we're using a hard voting classifier that combines predictions based on the majority class label predicted by each individual classifier (XGBoost, Logistic Regression, and Support Vector Classifier).
 
-+----------------------+---------------------+-------+-----------+-----------+
-| Model                | Hyperparamethers    | Score | Precision | Recall    |
-|                      |                     |       | (Average) | (Average) |
-+----------------------+---------------------+-------+-----------+-----------+
-| Gaussian Naive Bayes | Standar Scaler      | 65%   | 62%       | 64%       |
-| (baseline model)     |                     |       |           |           |
-+----------------------+---------------------+-------+-----------+-----------+
-| Logistic Regression  | PCA = 63            | 64%   | 58%       | 51%       |
-|                      |                     |       |           |           |
-|                      | Standar Scaler      |       |           |           |
-|                      | C = 1               |       |           |           |
-|                      | cv = 5              |       |           |           |
-+----------------------+---------------------+-------+-----------+-----------+
-| Logistic Regression  | StandarScaler       | 90%   | 89%       | 88%       |
-+----------------------+---------------------+-------+-----------+-----------+
-| KNN                  | StandarScaler       | 48%   | 38%       | 38%       |
-|                      | n_neighbors = 3     |       |           |           |
-|                      | weights = distance  |       |           |           |
-|                      | metric = manhattan  |       |           |           |
-|                      | cv = 5              |       |           |           |
-+----------------------+---------------------+-------+-----------+-----------+
-| Random Forest        | StandarScaler       | 94%   | 95%       | 84%       |
-|                      | PCA = 45            |       |           |           |
-|                      | max_depth = 35      |       |           |           |
-|                      | min_sample_leaf = 1 |       |           |           |
-|                      | min_sample_split =2 |       |           |           |
-|                      | n_estimators = 300  |       |           |           |
-|                      | cv = 5              |       |           |           |
-+----------------------+---------------------+-------+-----------+-----------+
-| Random Forest        | StandarScaler       | 74%   | 82%       | 62%       |
-|                      | n_estimators = 300  |       |           |           |
-|                      | max_depth = 35      |       |           |           |
-|                      | min_sample_leaf = 1 |       |           |           |
-+----------------------+---------------------+-------+-----------+-----------+
-| XGBoost              |                     | 95%   | 95%       | 88%       |
-+----------------------+---------------------+-------+-----------+-----------+
-| Ensamble             | XGBoost             | 95%   | 96%       | 89%       |
-|                      | Logistic Regression |       |           |           |
-|                      | SVC                 |       |           |           |
-|                      | voting = hard       |       |           |           |
-+----------------------+---------------------+-------+-----------+-----------+
+| Model                                 | Hyperparamethers                                                                                         | Score | Precision (Average) | Recall (Average) |
+|---------------------------------------|----------------------------------------------------------------------------------------------------------|-------|---------------------|------------------|
+| Gaussian Naive Bayes (baseline model) | Standar Scaler                                                                                           | 65%   | 62%                 | 64%              |
+| Logistic Regression                   | PCA = 63  Standar Scaler C = 1 cv = 5                                                                    | 64%   | 58%                 | 51%              |
+| Logistic Regression                   | StandarScaler                                                                                            | 90%   | 89%                 | 88%              |
+| KNN                                   | StandarScaler n_neighbors = 3 weights = distance metric = manhattan cv = 5                               | 48%   | 38%                 | 38%              |
+| Random Forest                         | StandarScaler PCA = 45 max_depth = 35  min_sample_leaf = 1 min_sample_split =2 n_estimators = 300 cv = 5 | 94%   | 95%                 | 84%              |
+| Random Forest                         | StandarScaler n_estimators = 300 max_depth = 35 min_sample_leaf = 1                                      | 74%   | 82%                 | 62%              |
+| XGBoost                               |                                                                                                          | 95%   | 95%                 | 88%              |
+| Ensamble                              | XGBoost Logistic Regression SVC voting = hard                                                            | 95%   | 96%                 | 89%              |
 
 ## Requirements
 
