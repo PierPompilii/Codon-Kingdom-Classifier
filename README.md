@@ -47,13 +47,59 @@ We have built and evaluated several machine learning models to classify species 
 
 - Gaussian Naive Bayes: A probabilistic classifier based on applying Bayes' theorem with the assumption of independence between every pair of features.For this case it will be our baseline model. 
 
-- Logistic Regression: A linear model for binary classification that can be extended to multiclass classification problems.
+- Logistic Regression: A linear model for binary classification that can be extended to multiclass classification problems. For this case, 5 clasess. 
 
 - K-Nearest Neighbors (KNN): A non-parametric method used for classification by comparing the distance of a point to the points in the training set.
 
 - Random Forest: An ensemble method that operates by constructing multiple decision trees and outputs the mode of the classes.
 
 - Clustering: Unsupervised learning techniques to group species based on codon frequencies, providing insights into natural groupings in the data.
+
+-XGBoost: An ensemble learning method that combines multiple weak learners (decision trees by default) to create a strong classifier. It iteratively builds new models that complement the errors of previous models, focusing on instances where previous models have performed poorly.
+
+-Esamble (XGBoost, Logistic Regression and SVC): Ensemble learning combines predictions from multiple machine learning models to produce better results than any single model. In this case, we're using a hard voting classifier that combines predictions based on the majority class label predicted by each individual classifier (XGBoost, Logistic Regression, and Support Vector Classifier).
+
++----------------------+---------------------+-------+-----------+-----------+
+| Model                | Hyperparamethers    | Score | Precision | Recall    |
+|                      |                     |       | (Average) | (Average) |
++----------------------+---------------------+-------+-----------+-----------+
+| Gaussian Naive Bayes | Standar Scaler      | 65%   | 62%       | 64%       |
+| (baseline model)     |                     |       |           |           |
++----------------------+---------------------+-------+-----------+-----------+
+| Logistic Regression  | PCA = 63            | 64%   | 58%       | 51%       |
+|                      |                     |       |           |           |
+|                      | Standar Scaler      |       |           |           |
+|                      | C = 1               |       |           |           |
+|                      | cv = 5              |       |           |           |
++----------------------+---------------------+-------+-----------+-----------+
+| Logistic Regression  | StandarScaler       | 90%   | 89%       | 88%       |
++----------------------+---------------------+-------+-----------+-----------+
+| KNN                  | StandarScaler       | 48%   | 38%       | 38%       |
+|                      | n_neighbors = 3     |       |           |           |
+|                      | weights = distance  |       |           |           |
+|                      | metric = manhattan  |       |           |           |
+|                      | cv = 5              |       |           |           |
++----------------------+---------------------+-------+-----------+-----------+
+| Random Forest        | StandarScaler       | 94%   | 95%       | 84%       |
+|                      | PCA = 45            |       |           |           |
+|                      | max_depth = 35      |       |           |           |
+|                      | min_sample_leaf = 1 |       |           |           |
+|                      | min_sample_split =2 |       |           |           |
+|                      | n_estimators = 300  |       |           |           |
+|                      | cv = 5              |       |           |           |
++----------------------+---------------------+-------+-----------+-----------+
+| Random Forest        | StandarScaler       | 74%   | 82%       | 62%       |
+|                      | n_estimators = 300  |       |           |           |
+|                      | max_depth = 35      |       |           |           |
+|                      | min_sample_leaf = 1 |       |           |           |
++----------------------+---------------------+-------+-----------+-----------+
+| XGBoost              |                     | 95%   | 95%       | 88%       |
++----------------------+---------------------+-------+-----------+-----------+
+| Ensamble             | XGBoost             | 95%   | 96%       | 89%       |
+|                      | Logistic Regression |       |           |           |
+|                      | SVC                 |       |           |           |
+|                      | voting = hard       |       |           |           |
++----------------------+---------------------+-------+-----------+-----------+
 
 ## Requirements
 
