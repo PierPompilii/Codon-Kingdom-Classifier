@@ -32,14 +32,15 @@ https://archive.ics.uci.edu/dataset/577/codon+usage
 ## Project Structure
 
 - `data/`: Directory containing the dataset.
-  - `codon_frequencies.csv`: The dataset file.
+  - `codon_usage.csv`: Raw dataset file.
+  - `codon_df_clean.csv`: Clean dataset for EDA and ML models.
 - `notebooks/`: Jupyter notebooks for data exploration, preprocessing, and modeling.
-  - `exploration.ipynb`: Initial data exploration and visualization.
-  - `preprocessing.ipynb`: Data cleaning and preprocessing.
-  - `classification.ipynb`: Building and evaluating classification models.
-- `src/`: Python scripts for data processing and modeling.
-  - `data_processing.py`: Functions for loading and preprocessing data.
-  - `modeling.py`: Functions for training and evaluating models.
+  - `01-data-loading-cleaning.ipynb`:Data cleaning and preprocessing.
+  - `02-eda.ipynb`: Initial data exploration and visualization.
+  - `03-modelling`: Machine Learning models.
+- `App`: Streamlit documents. 
+- `docs/figures`:Relevant figures from the notebooks.
+- `references/paper`: Paper on which the study was base on.
 - `README.md`: Project overview and instructions.
 
 ## Machine Learning Models
@@ -59,16 +60,15 @@ We have built and evaluated several machine learning models to classify species 
 
 -Esamble (XGBoost, Logistic Regression and SVC): Ensemble learning combines predictions from multiple machine learning models to produce better results than any single model. In this case, we're using a hard voting classifier that combines predictions based on the majority class label predicted by each individual classifier (XGBoost, Logistic Regression, and Support Vector Classifier).
 
-| Model                                 | Hyperparamethers                                                                                         | Score | Precision (Average) | Recall (Average) |
-|---------------------------------------|----------------------------------------------------------------------------------------------------------|-------|---------------------|------------------|
-| Gaussian Naive Bayes (baseline model) | Standar Scaler                                                                                           | 65%   | 62%                 | 64%              |
-| Logistic Regression                   | PCA = 63  Standar Scaler C = 1 cv = 5                                                                    | 64%   | 58%                 | 51%              |
-| Logistic Regression                   | StandarScaler                                                                                            | 90%   | 89%                 | 88%              |
-| KNN                                   | StandarScaler n_neighbors = 3 weights = distance metric = manhattan cv = 5                               | 48%   | 38%                 | 38%              |
-| Random Forest                         | StandarScaler PCA = 45 max_depth = 35  min_sample_leaf = 1 min_sample_split =2 n_estimators = 300 cv = 5 | 94%   | 95%                 | 84%              |
-| Random Forest                         | StandarScaler n_estimators = 300 max_depth = 35 min_sample_leaf = 1                                      | 74%   | 82%                 | 62%              |
-| XGBoost                               |                                                                                                          | 95%   | 95%                 | 88%              |
-| Ensamble                              | XGBoost Logistic Regression SVC voting = hard                                                            | 95%   | 96%                 | 89%              |
+| Model                 | Parameters                                                                                                               | Score | Precision (Average) | Recall (Average) |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------|-------|---------------------|------------------|
+| GaussianNB            | StandarScaler                                                                                                            | 65%   | 62%                 | 64%              |
+| Logisti Regression    | StandarScaler, PCA = 63, C = 1, cv =5                                                                                    | 90%   | 89%                 | 86%              |
+| KNN                   | StandarScaler, n_neighbors = 3, metric = manhattan, weights = distance, cv = 5                                           | 96%   | 95%                 | 94%              |
+| Random Forest(PCA)    | StandarScaler, n_components = 64, max_depth = 35, min_sample_leaf = 1, min_sample_split = 2, n_estimators = 350,  cv = 5 | 94%   | 95%                 | 85%              |
+| Random Forest(No PCA) | StandarScaler, max_depth = 35,  min_sample_leaf = 1, min_sample_split = 2, n_estimators = 350,  cv = 5                   | 74%   | 82%                 | 61%              |
+| XGBoost               |                                                                                                                          | 95%   | 95%                 | 88%              |
+| Ensamble Model        | XGBoost, Logistic Regression, SVC, voting = hard                                                                         | 95%   | 96%                 | 89%              |
 
 ## Requirements
 
