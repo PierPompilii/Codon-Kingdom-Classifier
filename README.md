@@ -1,4 +1,4 @@
-# Codon Kingdom Classifier: Predicting Species Kingdoms from DNA Codon Frequencies
+# Codon Kingdom Classifier
 
 This project aims to classify species into different kingdoms based on the frequencies of codons in their DNA sequences. The dataset contains codon usage frequencies for various species, and the goal is to build a classification model to predict the kingdom to which a species belongs.
 
@@ -28,6 +28,7 @@ The dataset is a CSV file with 13,026 entries and 69 columns. Each row represent
 Hallee, L., Khomtchouk, B.B. Machine learning classifiers predict key genomic and evolutionary traits across the kingdoms of life. Sci Rep 13, 2088 (2023). https://doi.org/10.1038/s41598-023-28965-7.
 https://archive.ics.uci.edu/dataset/577/codon+usage
 
+https://drive.google.com/drive/folders/1UHM9vnM_XkXiQFZytd_pLx1MHvX8DqWX
 
 ## Project Structure
 
