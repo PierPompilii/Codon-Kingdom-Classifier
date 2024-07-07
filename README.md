@@ -1,4 +1,4 @@
-# Codon Frequency Classification Project
+# Codon Kingdom Classifier: Predicting Species Kingdoms from DNA Codon Frequencies
 
 This project aims to classify species into different kingdoms based on the frequencies of codons in their DNA sequences. The dataset contains codon usage frequencies for various species, and the goal is to build a classification model to predict the kingdom to which a species belongs.
 
@@ -38,6 +38,7 @@ https://archive.ics.uci.edu/dataset/577/codon+usage
   - `01-data-loading-cleaning.ipynb`:Data cleaning and preprocessing.
   - `02-eda.ipynb`: Initial data exploration and visualization.
   - `03-modelling`: Machine Learning models.
+- `model`: ML models as a pkl.
 - `App`: Streamlit documents. 
 - `docs/figures`:Relevant figures from the notebooks.
 - `references/paper`: Paper on which the study was base on.
@@ -46,19 +47,19 @@ https://archive.ics.uci.edu/dataset/577/codon+usage
 ## Machine Learning Models
 We have built and evaluated several machine learning models to classify species based on codon frequencies:
 
-- Gaussian Naive Bayes: A probabilistic classifier based on applying Bayes' theorem with the assumption of independence between every pair of features.For this case it will be our baseline model. 
+- **Gaussian Naive Bayes**: A probabilistic classifier based on applying Bayes' theorem with the assumption of independence between every pair of features.For this case it will be our baseline model. 
 
-- Logistic Regression: A linear model for binary classification that can be extended to multiclass classification problems. For this case, 5 clasess. 
+- **Logistic Regression**: A linear model for binary classification that can be extended to multiclass classification problems. For this case, 5 clasess. 
 
-- K-Nearest Neighbors (KNN): A non-parametric method used for classification by comparing the distance of a point to the points in the training set.
+- **K-Nearest Neighbors (KNN)**: A non-parametric method used for classification by comparing the distance of a point to the points in the training set.
 
-- Random Forest: An ensemble method that operates by constructing multiple decision trees and outputs the mode of the classes.
+- **Random Forest**: An ensemble method that operates by constructing multiple decision trees and outputs the mode of the classes.
 
-- Clustering: Unsupervised learning techniques to group species based on codon frequencies, providing insights into natural groupings in the data.
+- **Clustering**: Unsupervised learning techniques to group species based on codon frequencies, providing insights into natural groupings in the data.
 
--XGBoost: An ensemble learning method that combines multiple weak learners (decision trees by default) to create a strong classifier. It iteratively builds new models that complement the errors of previous models, focusing on instances where previous models have performed poorly.
+-**XGBoost**: An ensemble learning method that combines multiple weak learners (decision trees by default) to create a strong classifier. It iteratively builds new models that complement the errors of previous models, focusing on instances where previous models have performed poorly.
 
--Esamble (XGBoost, Logistic Regression and SVC): Ensemble learning combines predictions from multiple machine learning models to produce better results than any single model. In this case, we're using a hard voting classifier that combines predictions based on the majority class label predicted by each individual classifier (XGBoost, Logistic Regression, and Support Vector Classifier).
+-**Ensemble Model** (XGBoost, Logistic Regression and SVC): Ensemble learning combines predictions from multiple machine learning models to produce better results than any single model. In this case, we're using a hard voting classifier that combines predictions based on the majority class label predicted by each individual classifier (XGBoost, Logistic Regression, and Support Vector Classifier).
 
 | Model                 | Parameters                                                                                                               | Score | Precision (Average) | Recall (Average) |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------|-------|---------------------|------------------|
